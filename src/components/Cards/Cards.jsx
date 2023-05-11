@@ -1,7 +1,7 @@
 import Card from '.././Card/Card.jsx';
 import style from "./Cards.module.css"
-export default function Cards({characters}) {
-   const onClose=() => window.alert('Emulamos que se cierra la card')
+export default function Cards({characters,onClose}) {
+   
    return (
    
    <div className={style.container}>   
@@ -9,6 +9,7 @@ export default function Cards({characters}) {
          return (
             <Card
                key={id}
+               id={id}
                name={name}
                status={status}
                species={species}

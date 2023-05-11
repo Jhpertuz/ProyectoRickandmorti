@@ -16,9 +16,7 @@ export default function Card({id,name,status,species,gender,origin,image,onClose
    return (
       <div className={style.marco}>
       <div className={style.container}> 
-         <div className={style.buttonContainer}>
-            <button className={style.button} onClick={onClose}>X</button>
-         </div>
+         
          
             <div className={style.flipcard}>
 
@@ -32,6 +30,9 @@ export default function Card({id,name,status,species,gender,origin,image,onClose
                   <h2>{`Especie: ${species}`}</h2>
                   <h2>{`Genero: ${gender}`}</h2> 
                   <h2>{`Origen: ${origin}`}</h2>
+                  <div className={style.buttonContainer}>
+                     <button className={style.button} onClick={()=>{onClose(id)}}>X</button>
+                  </div>
                </div>
 
                
