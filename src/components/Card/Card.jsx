@@ -1,20 +1,13 @@
-// export default function Card(props) {
-//    return (
-//       <div>
-//          {/* <button onClick={}>X</button>
-//          <h2></h2>
-//          <h2></h2>
-//          <h2></h2>
-//          <h2></h2>
-//          <h2></h2>
-//          <img src={} alt='' /> */}
-//       </div>
-//    );
-// }
 import style from "./Card.module.css"
+import { Link } from "react-router-dom";
+import imagen from ".././img/detail.png"
+
 export default function Card({id,name,status,species,gender,origin,image,onClose}) {
    return (
+
+
       <div className={style.marco}>
+       
       <div className={style.container}> 
          
          
@@ -30,8 +23,12 @@ export default function Card({id,name,status,species,gender,origin,image,onClose
                   <h2>{`Especie: ${species}`}</h2>
                   <h2>{`Genero: ${gender}`}</h2> 
                   <h2>{`Origen: ${origin}`}</h2>
+                  
                   <div className={style.buttonContainer}>
                      <button className={style.button} onClick={()=>{onClose(id)}}>X</button>
+                     <Link to={`/detail/${id}`} >
+                     <img src={imagen} alt="Detail"/>
+                     </Link>
                   </div>
                </div>
 
@@ -39,7 +36,7 @@ export default function Card({id,name,status,species,gender,origin,image,onClose
 
             </div>
          </div>
-         
+ 
 
          
       </div>

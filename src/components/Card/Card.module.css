@@ -1,6 +1,6 @@
 h2{
     display: block;
-    font-size: 12px;
+    font-size: 11px;
     margin-block-start: 0.em;
     margin-block-end: 0.4em;
     margin-inline-start: 0px;
@@ -16,6 +16,9 @@ h2{
     background-size: cover;
     height: 200px;
     width: 200px;
+    -webkit-box-shadow: 1px 13px 23px -11px rgba(0,0,0,0.82);
+    -moz-box-shadow: 1px 13px 23px -11px rgba(0,0,0,0.82);
+    box-shadow: 1px 13px 23px -11px rgba(0,0,0,0.82);
 }
 
 .container{
@@ -82,20 +85,23 @@ h2{
 }
 
 .button{
-    position:absolute;
-    display: flex;
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
     border-radius: 6px;
     justify-content: center;
-    align-items: center;
+    align-content: center;
     background: red;
-    margin-top: 4px;
+    margin-top: 3px;
     
 }
 
 .buttonContainer{
-    display: flex;    
+    display: grid;
+    grid-template-columns: repeat(2, 30px);
+    grid-template-rows: 30 px;
+    grid-column-gap: 12px;
+    grid-row-gap: 5px;
+    align-content: center;
     justify-content: center;
+    align-content: space-between ;
 }
-
