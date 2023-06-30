@@ -7,6 +7,7 @@ import {Routes,Route,useLocation,useNavigate} from "react-router-dom"
 import About from "./components/About/About.jsx";
 import Detail from "./components/Detail/Detail.jsx";
 import Forms from "./components/Forms/Forms.jsx";
+import Favorites from "./components/Favorites/Favorites.jsx";
 const EMAIL = 'jorgepertuz23@gmail.com';
 const PASSWORD = 'asd123';
 
@@ -62,6 +63,7 @@ function App() {
                <Route path="/" element={<Forms login={login}/>}/>
                <Route path="/home" element={<Cards characters={characters} onClose={onClose}/>} />
                <Route path="/about" element={<About />} />
+               <Route path="/favorites" element={<Favorites/>} />
                <Route path="/detail/:id" element={<Detail/>}/>
             </Routes>
          

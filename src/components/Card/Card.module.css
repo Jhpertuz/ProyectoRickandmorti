@@ -70,7 +70,7 @@ h2{
     border-radius: 10px;
     width:81.08%;
     height:81.08%;
-    margin-right: 36px;
+    margin-right: 38.69px;
     margin-top: 0px;
 }
 
@@ -96,12 +96,21 @@ h2{
 }
 
 .buttonContainer{
+    margin-top: 6px;
     display: grid;
-    grid-template-columns: repeat(2, 30px);
+    grid-template-columns: repeat(3, 30px);
     grid-template-rows: 30 px;
     grid-column-gap: 12px;
     grid-row-gap: 5px;
     align-content: center;
     justify-content: center;
     align-content: space-between ;
+}
+
+.fav{
+    margin-right: 0px;
+    border-radius: 12px;
+    align-content: center;
+    justify-content: center;
+    width: 35px;
 }
