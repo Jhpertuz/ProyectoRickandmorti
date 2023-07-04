@@ -1,8 +1,0 @@
-.nav{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 40 px;
-    grid-column-gap: 36px;
-    grid-row-gap: 0px;
-    align-items: center;
-}
