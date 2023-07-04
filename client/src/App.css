@@ -1,0 +1,16 @@
+.App {
+   text-align: center;
+}
+
+.CardsContainer{
+   display: flex;
+   flex-direction: column;
+    align-items: stretch;
+    padding: 1px;
+}
+
+body{
+   display: block;
+   background-image: url("./components/img/812062.jpg");
+   background-size: cover;
+}

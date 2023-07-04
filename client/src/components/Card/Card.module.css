@@ -1,0 +1,116 @@
+h2{
+    display: block;
+    font-size: 11px;
+    margin-block-start: 0.em;
+    margin-block-end: 0.4em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.marco{
+    position: relative;
+    flex-direction: column;
+    align-items: stretch;
+    background-image: url(".././img/marco.png");
+    background-size: cover;
+    height: 200px;
+    width: 200px;
+    -webkit-box-shadow: 1px 13px 23px -11px rgba(0,0,0,0.82);
+    -moz-box-shadow: 1px 13px 23px -11px rgba(0,0,0,0.82);
+    box-shadow: 1px 13px 23px -11px rgba(0,0,0,0.82);
+}
+
+.container{
+    position: relative;
+    flex-direction: column;
+    align-items: stretch;
+    border: 2px;
+    height: 81.08%;
+    width: 81.08%;
+    border-radius: 10px; /* establece el ancho en un 50% del ancho del contenedor padre */
+  
+}
+.flipcard{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-color:white;
+    transform-style: preserve-3d;
+    transition: all 0.04s ease;
+    border-radius: 10px;
+    margin-left: 15px;
+    margin-top: 15px;
+    
+
+}
+
+
+.flipcard:hover{
+    transform: rotateY(180deg);
+    border-radius: 10px;
+    width:100%;
+    height:100%;
+    margin-left: 17px;
+    margin-top: 19px;
+}
+
+.imagecontainer{
+    position:absolute;
+    width:207px;
+    height:207px;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+}
+
+.image{
+    position:left;
+    border-radius: 10px;
+    width:81.08%;
+    height:81.08%;
+    margin-right: 38.69px;
+    margin-top: 0px;
+}
+
+.textcontainer{
+    position:absolute;
+    width:100%;
+    height:100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    border-radius: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.button{
+    width: 27px;
+    height: 27px;
+    border-radius: 6px;
+    justify-content: center;
+    align-content: center;
+    background: red;
+    margin-top: 3px;
+    
+}
+
+.buttonContainer{
+    margin-top: 6px;
+    display: grid;
+    grid-template-columns: repeat(3, 30px);
+    grid-template-rows: 30 px;
+    grid-column-gap: 12px;
+    grid-row-gap: 5px;
+    align-content: center;
+    justify-content: center;
+    align-content: space-between ;
+}
+
+.fav{
+    margin-right: 0px;
+    border-radius: 12px;
+    align-content: center;
+    justify-content: center;
+    width: 35px;
+}
