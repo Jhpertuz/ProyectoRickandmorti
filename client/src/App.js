@@ -8,8 +8,6 @@ import About from "./components/About/About.jsx";
 import Detail from "./components/Detail/Detail.jsx";
 import Forms from "./components/Forms/Forms.jsx";
 import Favorites from "./components/Favorites/Favorites.jsx";
-const EMAIL = "jorgepertuz23@gmail.com";
-const PASSWORD = "asd123";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -18,28 +16,42 @@ function App() {
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
 
-  function login(userData) {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setAccess(true);
-      navigate("/home");
+  async function login(userData) {
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+
+    try {
+      const { data } = await axios(URL + `?email=${email}&password=${password}`);
+      const { access } = data;
+      setAccess(access);
+      access && navigate("/home");
+    } catch (error) {
+      console.log(error)
+
     }
+
+
   }
 
   useEffect(() => {
     !access && navigate("/");
- // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [access]);
 
-  function onSearch(id) {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert("¡No hay personajes con este ID!");
-        }
+  async function onSearch(id) {
+    try {
+      const { data } = await axios(
+        `http://localhost:3001/rickandmorty/character/${id}`
+      );
+
+      if (data.name) {
+        setCharacters((oldChars) => [...oldChars, data]);
+      } else {
+        window.alert("¡No hay personajes con este ID!");
       }
-    );
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const onClose = (id) => {

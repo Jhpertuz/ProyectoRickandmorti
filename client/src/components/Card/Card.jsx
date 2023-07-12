@@ -1,9 +1,9 @@
 import style from "./Card.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import imagen from ".././img/detail.png";
 import { connect } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/actions";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 
 function Card({
@@ -17,10 +17,8 @@ function Card({
   onClose,
   addFavorite,
   removeFavorite,
-  myFavorite
-})
-
-{
+  myFavorite,
+}) {
   const [isFav, setIsFav] = useState(false);
   const handleFavorite = () => {
     if (isFav) {
@@ -44,13 +42,15 @@ function Card({
   };
 
   useEffect(() => {
-   myFavorite.forEach((fav) => {
+    myFavorite.forEach((fav) => {
       if (fav.id === id) {
-         setIsFav(true);
+        setIsFav(true);
       }
-   });
-// eslint-disable-next-line
-}, [myFavorite]);
+    });
+    // eslint-disable-next-line
+  }, [myFavorite]);
+
+  const location = useLocation();
 
   return (
     <div className={style.marco}>
@@ -65,24 +65,20 @@ function Card({
             <h2>{`Estado: ${status}`}</h2>
             <h2>{`Especie: ${species}`}</h2>
             <h2>{`Genero: ${gender}`}</h2>
-            <h2>{`Origen: ${origin}`}</h2>
-
+            <h2>{`Origen: ${origin}`}</h2>            
             <div className={style.buttonContainer}>
-              <button
-                className={style.button}
-                onClick={() => {
-                  onClose(id);
-                }}
-              >
-                X
-              </button>
+            {location.pathname !== "/favorites" && <button className={style.button} onClick={() => {onClose(id);}}> X </button>}
               <Link to={`/detail/${id}`}>
                 <img src={imagen} alt="Detail" />
               </Link>
               {isFav ? (
-                <button className={style.fav} onClick={handleFavorite}>❤️</button>
+                <button className={style.fav} onClick={handleFavorite}>
+                  ❤️
+                </button>
               ) : (
-                <button className={style.fav} onClick={handleFavorite}>🤍</button>
+                <button className={style.fav} onClick={handleFavorite}>
+                  🤍
+                </button>
               )}
             </div>
           </div>
@@ -102,11 +98,10 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const mapStateToProps = (state)=>{
-   return{
-      myFavorite: state.myFavorite,
-
-   }
-}
+const mapStateToProps = (state) => {
+  return {
+    myFavorite: state.myFavorite,
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
